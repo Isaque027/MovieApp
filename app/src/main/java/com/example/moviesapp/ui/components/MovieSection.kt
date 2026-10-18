@@ -11,7 +11,9 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -53,6 +55,11 @@ fun MovieSection(
                 movie -> MoviePoster(movie)
             }
             item {
+                Column(
+                    modifier = Modifier
+                        .width(148.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                 AsyncImage(
                     model = "https://br.web.img3.acsta.net/pictures/16/02/03/17/11/571106.jpg",
                     contentDescription = null,
@@ -66,7 +73,17 @@ fun MovieSection(
                     onError = {
                         println("Erro ao carregar a imagem!")
                     }
+
                 )
+
+                Text(
+                    text = "One Piece",
+                    fontSize = 14.sp,
+                    color = Color.White,
+                    modifier = Modifier
+                )
+
+            }
             }
         }
 
